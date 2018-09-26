@@ -16,8 +16,11 @@ layout: default
       <span>on&nbsp;</span><time datetime="{{ page.date }}">{{ page.date | date: "%B %d, %Y" }}</time>
     {% endif %}
   </div>
-
+  
   <h1 class="post-title">{{ page.title }}</h1>
+  {% if page.book %}
+    <h2 class="post-subtitle">A book review on {{ page.book }}</h2>
+  {% endif %}
   <div class="post-line"></div>
 
   {{ content }}

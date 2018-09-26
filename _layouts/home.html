@@ -7,9 +7,16 @@ layout: default
     <a href="{{ post.url | prepend: site.baseurl }}" class="catalogue-item">
       <div>
         <time datetime="{{ post.date }}" class="catalogue-time">{{ post.date | date: "%B %d, %Y" }}</time>
-        <h1 class="catalogue-title">{{ post.title }}</h1>
+        <h1 class="catalogue-title">
+          {% if post.book %}
+          <i class="fa fa-book catalogue-icon fa-xs"></i>&nbsp;
+          {% endif%}
+          {{ post.title }}
+        </h1>
         <div class="catalogue-line"></div>
-
+        {% if post.book %}
+          <h2 class="catalogue-subtitle">A book review on {{ post.book }}</h2>
+        {% endif %}
         <p>
           {{ post.content | strip_html | truncatewords: 30 }}
         </p>
